@@ -4,36 +4,90 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    String screenString = "";
+    TextView screen;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        screen = (TextView) findViewById(R.id.screen);
+
+    }
+
+    public void press1(View view) {
+        screenString += "1";
+        displayScreen(screenString);
+    }
+
+    public void press2(View view) {
+        screenString += "2";
+        displayScreen(screenString);
+    }
+
+    public void press3(View view) {
+        screenString += "3";
+        displayScreen(screenString);
+    }
+
+    public void press4(View view) {
+        screenString += "4";
+        displayScreen(screenString);
+    }
+
+    public void press5(View view) {
+        screenString += "5";
+        displayScreen(screenString);
+    }
+
+    public void press6(View view) {
+        screenString += "6";
+        displayScreen(screenString);
+    }
+
+    public void press7(View view) {
+        screenString += "7";
+        displayScreen(screenString);
+    }
+
+    public void press8(View view) {
+        screenString += "8";
+        displayScreen(screenString);
+    }
+
+    public void press9(View view) {
+        screenString += "9";
+        displayScreen(screenString);
+    }
+
+    public void press0(View view) {
+        screenString += "0";
+        displayScreen(screenString);
+    }
+
+    public void pressPoint(View view) {
+        screenString += ".";
+        displayScreen(screenString);
+    }
+
+    public void pressAC(View view) {
+        screenString = "";
+        displayScreen(screenString);
+    }
+
+    private void displayScreen(String screenString) {
+        screen.setText(screenString);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

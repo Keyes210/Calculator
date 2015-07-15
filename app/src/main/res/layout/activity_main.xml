@@ -28,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ac"
+        android:onClick="pressAC"
         android:id="@+id/buttonAC"
         android:singleLine="true"
         />
@@ -64,6 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="7"
+        android:onClick="press7"
         android:id="@+id/button7"
         android:singleLine="true"
         />
@@ -73,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="8"
+        android:onClick="press8"
         android:id="@+id/button8"
         android:singleLine="true"
         />
@@ -82,6 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="9"
+        android:onClick="press9"
         android:id="@+id/button9"
         android:singleLine="true"
         />
@@ -101,7 +105,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button4"
         android:singleLine="true"
-
+        android:onClick="press4"
         android:text="4"/>
 
     <Button
@@ -109,6 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5"
+        android:onClick="press5"
         android:id="@+id/button5"
         android:singleLine="true"
        />
@@ -118,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="6"
+        android:onClick="press6"
         android:id="@+id/button13"
         android:singleLine="true"
         />
@@ -136,6 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
+        android:onClick="press1"
         android:id="@+id/button1"
         android:singleLine="true"
         />
@@ -145,6 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2"
+        android:onClick="press2"
         android:id="@+id/button2"
         android:singleLine="true"
         />
@@ -154,6 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3"
+        android:onClick="press3"
         android:id="@+id/button3"
         android:singleLine="true"
         />
@@ -172,6 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:onClick="press0"
         android:id="@+id/button0"
         android:singleLine="true"
         />
@@ -181,6 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
+        android:onClick="pressPoint"
         android:id="@+id/buttonPoint"
         android:singleLine="true"
 
