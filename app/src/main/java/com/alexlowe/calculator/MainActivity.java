@@ -143,15 +143,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void pressEqual(View view) {
-        //pick up here, trying to get plus operation to work, switch statment for operator, check for value in holder and screen
-        //moved operation to calculate method instead of in each operation button's method
         if (!operator.equals("") && !screenString.equals("")) {
             if (operator.equals("SR")) {
                 pressSqrt(view);
             } else {
-                number2 = Double.parseDouble(screenString);
+                if (number2 == null){
+                    number2 = Double.parseDouble(screenString);
+                }
                 number1 = calculate(number1, number2, operator);
                 screenString = String.valueOf(number1);
+                displayScreen(screenString);
             }
         }
     }
