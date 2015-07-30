@@ -1,18 +1,19 @@
 package com.alexlowe.calculator;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     String screenString = "";
     TextView screen;
     Double number1 = null;
     Double number2 = null;
-    String operator;
+    String operator = "";
 
 
     @Override

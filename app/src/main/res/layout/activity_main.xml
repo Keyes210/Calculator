@@ -1,230 +1,283 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+
+              tools:context=".MainActivity">
 
     <TextView
-        android:text="0"
+        android:id="@+id/screen"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_weight="3"
         android:maxLength="12"
-        android:id="@+id/screen"/>
+        android:text="0"
+        android:gravity="bottom|right"
+        android:textStyle="bold"
+        android:textSize="48sp"/>
 
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/screen"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:columnCount="4"
-        android:rowCount="5">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ac"
-        android:onClick="pressAC"
-        android:id="@+id/buttonAC"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="%"
-        android:onClick="pressPercent"
-        android:id="@+id/buttonPercent"
-        android:singleLine="true"
-        />
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+            android:id="@+id/buttonAC"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressAC"
+            android:singleLine="true"
+            android:text="ac"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonPercent"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressPercent"
+            android:singleLine="true"
+            android:text="%"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonDivide"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressDiv"
+            android:singleLine="true"
+            android:text="/"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonBackspace"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressBack"
+            android:singleLine="true"
+            android:text="&lt;"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="/"
-        android:onClick="pressDiv"
-        android:id="@+id/buttonDivide"
-        android:singleLine="true"
-       />
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button7"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press7"
+            android:singleLine="true"
+            android:text="7"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button8"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press8"
+            android:singleLine="true"
+            android:text="8"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button9"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press9"
+            android:singleLine="true"
+            android:text="9"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonMult"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressMult"
+            android:singleLine="true"
+            android:text="x"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="&lt;"
-        android:id="@+id/buttonBackspace"
-        android:onClick="pressBack"
-        android:singleLine="true"
-        />
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press4"
+            android:singleLine="true"
+            android:text="4"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button5"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press5"
+            android:singleLine="true"
+            android:text="5"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button13"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press6"
+            android:singleLine="true"
+            android:text="6"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonSub"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressMinus"
+            android:singleLine="true"
+            android:text="-"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="7"
-        android:onClick="press7"
-        android:id="@+id/button7"
-        android:singleLine="true"
-        />
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press1"
+            android:singleLine="true"
+            android:text="1"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press2"
+            android:singleLine="true"
+            android:text="2"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press3"
+            android:singleLine="true"
+            android:text="3"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/buttonPlus"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressPlus"
+            android:singleLine="true"
+            android:text="+"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="8"
-        android:onClick="press8"
-        android:id="@+id/button8"
-        android:singleLine="true"
-        />
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9"
-        android:onClick="press9"
-        android:id="@+id/button9"
-        android:singleLine="true"
-        />
+        <Button
+            android:id="@+id/button0"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="press0"
+            android:singleLine="true"
+            android:text="0"
+            android:textStyle="bold"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x"
-        android:onClick="pressMult"
-        android:id="@+id/buttonMult"
-        android:singleLine="true"
-        />
+        <Button
+            android:id="@+id/buttonPoint"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressPoint"
+            android:singleLine="true"
+            android:text="."
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button4"
-        android:singleLine="true"
-        android:onClick="press4"
-        android:text="4"/>
+            android:textStyle="bold"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:onClick="press5"
-        android:id="@+id/button5"
-        android:singleLine="true"
-       />
+        <Button
+            android:id="@+id/buttonSquareRoot"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressSqrt"
+            android:singleLine="true"
+            android:text="sr"
+            android:textStyle="bold"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6"
-        android:onClick="press6"
-        android:id="@+id/button13"
-        android:singleLine="true"
-        />
+        <Button
+            android:id="@+id/buttonEqual"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="pressEqual"
+            android:singleLine="true"
+            android:text="="
+            android:textStyle="bold"/>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:onClick="pressMinus"
-        android:id="@+id/buttonSub"
-        android:singleLine="true"
-       />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:onClick="press1"
-        android:id="@+id/button1"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:onClick="press2"
-        android:id="@+id/button2"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:onClick="press3"
-        android:id="@+id/button3"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:onClick="pressPlus"
-        android:id="@+id/buttonPlus"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:onClick="press0"
-        android:id="@+id/button0"
-        android:singleLine="true"
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="."
-        android:onClick="pressPoint"
-        android:id="@+id/buttonPoint"
-        android:singleLine="true"
-
-        />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sr"
-        android:onClick="pressSqrt"
-        android:id="@+id/buttonSquareRoot"
-        android:singleLine="true"
-       />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:onClick="pressEqual"
-        android:id="@+id/buttonEqual"
-        android:singleLine="true"
-        />
+    </LinearLayout>
 
 
-    </GridLayout>
-
-</RelativeLayout>
+</LinearLayout>
