@@ -1,19 +1,23 @@
 package com.alexlowe.calculator;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 
 public class MainActivity extends Activity {
 
     String screenString = "";
     TextView screen;
+    TextView opScreen;
     Double number1 = null;
     Double number2 = null;
     String operator = "";
+
+    DecimalFormat df = new DecimalFormat("@###########");
 
 
     @Override
@@ -22,7 +26,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         screen = (TextView) findViewById(R.id.screen);
+        opScreen = (TextView) findViewById(R.id.opScreen);
 
+        df.setMinimumFractionDigits(0);
+        df.setMinimumIntegerDigits(1);
+        df.setMaximumIntegerDigits(8);
+        df.setMaximumFractionDigits(8);
     }
 
     public void press1(View view) {
@@ -100,7 +109,7 @@ public class MainActivity extends Activity {
     public void pressSqrt(View view) {
         if (!screenString.equals("")) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
-            screenString = String.valueOf(number1);
+            screenString = String.valueOf(df.format(number1));
             operator = "SR";
             displayScreen(screenString);
         }
@@ -152,7 +161,8 @@ public class MainActivity extends Activity {
                     number2 = Double.parseDouble(screenString);
                 }
                 number1 = calculate(number1, number2, operator);
-                screenString = String.valueOf(number1);
+                screenString = String.valueOf(df.format(number1));
+                displayOps("","");
                 displayScreen(screenString);
             }
         }
@@ -198,6 +208,7 @@ public class MainActivity extends Activity {
                 number2 = null;
                 operator = op;
 
+                displayOps(screenString, operator);
                 screenString = "";
                 displayScreen(screenString);
             }
@@ -206,6 +217,10 @@ public class MainActivity extends Activity {
 
     private void displayScreen(String screenString) {
         screen.setText(screenString);
+    }
+
+    private void displayOps(String number, String operator) {
+        opScreen.setText(number+ " " + "\n" + operator + " ");
     }
 
 
