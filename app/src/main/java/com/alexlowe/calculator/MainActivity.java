@@ -1,8 +1,12 @@
 package com.alexlowe.calculator;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -17,6 +21,21 @@ public class MainActivity extends Activity {
     Double number2 = null;
     String operator = "";
 
+    Button plusButton;
+    Button subButton;
+    Button divButton;
+    Button multButton;
+    Button srButton;
+    Button perButton;
+
+    Button acButton;
+    Button backButton;
+
+    Button equalButton;
+
+
+
+
     DecimalFormat df = new DecimalFormat("@###########");
 
 
@@ -25,8 +44,35 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //button shading
+        plusButton = (Button) findViewById(R.id.buttonPlus);
+        plusButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+        subButton = (Button) findViewById(R.id.buttonSub);
+        subButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+        divButton = (Button) findViewById(R.id.buttonDivide);
+        divButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+        multButton = (Button) findViewById(R.id.buttonMult);
+        multButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+        srButton = (Button) findViewById(R.id.buttonSquareRoot);
+        srButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+        perButton = (Button) findViewById(R.id.buttonPercent);
+        perButton.getBackground().setColorFilter(0xFF666869, PorterDuff.Mode.MULTIPLY);
+
+        acButton = (Button) findViewById(R.id.buttonAC);
+        acButton.getBackground().setColorFilter(0xFFFFD239, PorterDuff.Mode.MULTIPLY);
+        backButton = (Button) findViewById(R.id.buttonBackspace);
+        backButton.getBackground().setColorFilter(0xFFFFD239, PorterDuff.Mode.MULTIPLY);
+
+        equalButton = (Button) findViewById(R.id.buttonEqual);
+        equalButton.getBackground().setColorFilter(0xFFFF4D51, PorterDuff.Mode.MULTIPLY);
+
+
+        //screen and fonts
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/digital-7.ttf");
         screen = (TextView) findViewById(R.id.screen);
         opScreen = (TextView) findViewById(R.id.opScreen);
+        screen.setTypeface(customFont);
+        opScreen.setTypeface(customFont);
 
         df.setMinimumFractionDigits(0);
         df.setMinimumIntegerDigits(1);
@@ -103,11 +149,12 @@ public class MainActivity extends Activity {
         number2 = null;
         operator = "";
         screenString = "";
+        displayOps("","");
         displayScreen(screenString);
     }
 
     public void pressSqrt(View view) {
-        if (!screenString.equals("")) {
+        if (!screenString.equals("") && !screenString.equals(".") ) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
             screenString = String.valueOf(df.format(number1));
             operator = "SR";
@@ -121,22 +168,6 @@ public class MainActivity extends Activity {
 
     public void pressPlus(View view) {
         operation("+");
-        /* --Old Code
-        if(screenString != "") {
-            if(number1 != null && number2 == null){
-                number2 = Double.parseDouble(screenString);
-                operator = "+";
-                Double result = calculate(number1, number2, operator);
-                screenString = String.valueOf(result);
-                displayScreen(screenString);
-            }else{
-                number1 = Double.parseDouble(screenString);
-                number2 = null;
-                operator = "+";
-                screenString = "";
-                displayScreen(screenString);
-            }
-        }*/
     }
 
     public void pressMinus(View view) {
@@ -191,16 +222,18 @@ public class MainActivity extends Activity {
     }
 
     private void operation(String op) {
-        if (!screenString.equals("")) {
+        if (!screenString.equals("") && !screenString.equals(".") ) {
             if (number1 != null && number2 == null) {
 
                 number2 = Double.parseDouble(screenString);
                 operator = op;
 
+
                 screenString = "";
                 displayScreen(screenString);
 
                 number1 = calculate(number1, number2, operator);
+                displayOps(String.valueOf(number1), operator);
                 number2 = null;
             } else {
 
