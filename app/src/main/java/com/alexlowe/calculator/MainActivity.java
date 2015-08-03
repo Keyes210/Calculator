@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 
 public class MainActivity extends Activity {
@@ -36,7 +38,7 @@ public class MainActivity extends Activity {
 
 
 
-    DecimalFormat df = new DecimalFormat("@###########");
+
 
 
     @Override
@@ -74,66 +76,54 @@ public class MainActivity extends Activity {
         screen.setTypeface(customFont);
         opScreen.setTypeface(customFont);
 
-        df.setMinimumFractionDigits(0);
-        df.setMinimumIntegerDigits(1);
-        df.setMaximumIntegerDigits(8);
-        df.setMaximumFractionDigits(8);
+
     }
 
     public void press1(View view) {
-        screenString += "1";
-        displayScreen(screenString);
+        pressKey("1");
     }
 
     public void press2(View view) {
-        screenString += "2";
-        displayScreen(screenString);
+        pressKey("2");
     }
 
     public void press3(View view) {
-        screenString += "3";
-        displayScreen(screenString);
+        pressKey("3");
     }
 
     public void press4(View view) {
-        screenString += "4";
-        displayScreen(screenString);
+        pressKey("4");
     }
 
     public void press5(View view) {
-        screenString += "5";
-        displayScreen(screenString);
+        pressKey("5");
     }
 
     public void press6(View view) {
-        screenString += "6";
-        displayScreen(screenString);
+        pressKey("6");
     }
 
     public void press7(View view) {
-        screenString += "7";
-        displayScreen(screenString);
+        pressKey("7");
     }
 
     public void press8(View view) {
-        screenString += "8";
-        displayScreen(screenString);
+        pressKey("8");
     }
 
     public void press9(View view) {
-        screenString += "9";
-        displayScreen(screenString);
+        pressKey("9");
     }
 
     public void press0(View view) {
-        screenString += "0";
-        displayScreen(screenString);
+        pressKey("0");
     }
+
+
 
     public void pressPoint(View view) {
         if (!screenString.contains(".")) {
-            screenString += ".";
-            displayScreen(screenString);
+            pressKey(".");
         }
     }
 
@@ -156,7 +146,7 @@ public class MainActivity extends Activity {
     public void pressSqrt(View view) {
         if (!screenString.equals("") && !screenString.equals(".") ) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
-            screenString = String.valueOf(df.format(number1));
+            screenString = String.valueOf(formatNumber(number1));
             operator = "SR";
             displayScreen(screenString);
         }
@@ -192,7 +182,7 @@ public class MainActivity extends Activity {
                     number2 = Double.parseDouble(screenString);
                 }
                 number1 = calculate(number1, number2, operator);
-                screenString = String.valueOf(df.format(number1));
+                screenString = String.valueOf(formatNumber(number1));
                 displayOps("","");
                 displayScreen(screenString);
             }
@@ -226,14 +216,13 @@ public class MainActivity extends Activity {
             if (number1 != null && number2 == null) {
 
                 number2 = Double.parseDouble(screenString);
+                number1 = calculate(number1, number2, operator);
                 operator = op;
 
-
+                displayOps(String.valueOf(formatNumber(number1)), operator);
                 screenString = "";
                 displayScreen(screenString);
 
-                number1 = calculate(number1, number2, operator);
-                displayOps(String.valueOf(number1), operator);
                 number2 = null;
             } else {
 
@@ -257,4 +246,29 @@ public class MainActivity extends Activity {
     }
 
 
+    private String formatNumber(Double number){
+        NumberFormat df;
+        String numStr = Double.toString(Math.abs(number));
+        int intPlaces = numStr.indexOf('.');
+        int decPlaces = numStr.length() - intPlaces - 1;
+
+        if (intPlaces > 10 || decPlaces > 10){
+            df = new DecimalFormat("0.0E0");
+            df.setMinimumFractionDigits(6);
+        }else{
+            df = new DecimalFormat("@###########");
+            df.setMaximumFractionDigits(0);
+        }
+
+        return df.format(number);
+    }
+
+    private void pressKey(String key) {
+        if(screenString.length() < 13){
+            screenString += key;
+            displayScreen(screenString);
+        }else{
+            Toast.makeText(this, R.string.digits_exceeded_toast, Toast.LENGTH_LONG).show();
+        }
+    }
 }

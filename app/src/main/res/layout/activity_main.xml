@@ -29,7 +29,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_weight="1"
-        android:maxLines="1"
+        android:maxLength="12"
         android:text="0"
         android:background="#eafff9"
         android:gravity="bottom|right"
@@ -51,7 +51,7 @@
             android:layout_weight="1"
             android:onClick="pressAC"
             android:singleLine="true"
-            android:text="ac"
+            android:text="AC"
             android:textStyle="bold"
             android:textColor="#ffffff"/>
 
@@ -64,7 +64,7 @@
             android:onClick="pressBack"
 
             android:singleLine="true"
-            android:text="&lt;"
+            android:text="@string/backspace"
             android:textStyle="bold"
             android:textColor="#ffffff"/>
 
@@ -308,7 +308,7 @@
             android:layout_weight="1"
             android:onClick="pressSqrt"
             android:singleLine="true"
-            android:text="sr"
+            android:text="SR"
 
             android:textStyle="bold"
             android:textColor="#ffffff"/>
