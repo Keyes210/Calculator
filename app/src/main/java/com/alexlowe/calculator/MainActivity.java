@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -146,7 +148,8 @@ public class MainActivity extends Activity {
     public void pressSqrt(View view) {
         if (!screenString.equals("") && !screenString.equals(".") ) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
-            screenString = String.valueOf(formatNumber(number1));
+            BigDecimal bd = new BigDecimal(number1);
+            screenString = String.valueOf(formatNumber(bd));
             operator = "SR";
             displayScreen(screenString);
         }
@@ -182,7 +185,8 @@ public class MainActivity extends Activity {
                     number2 = Double.parseDouble(screenString);
                 }
                 number1 = calculate(number1, number2, operator);
-                screenString = String.valueOf(formatNumber(number1));
+                BigDecimal bd = new BigDecimal(number1);
+                screenString = String.valueOf(formatNumber(bd));
                 displayOps("","");
                 displayScreen(screenString);
             }
@@ -219,7 +223,8 @@ public class MainActivity extends Activity {
                 number1 = calculate(number1, number2, operator);
                 operator = op;
 
-                displayOps(String.valueOf(formatNumber(number1)), operator);
+                BigDecimal bd = new BigDecimal(number1);
+                displayOps(String.valueOf(formatNumber(bd)), operator);
                 screenString = "";
                 displayScreen(screenString);
 
@@ -230,7 +235,8 @@ public class MainActivity extends Activity {
                 number2 = null;
                 operator = op;
 
-                displayOps(screenString, operator);
+                BigDecimal bd = new BigDecimal(screenString);
+                displayOps(String.valueOf(formatNumber(bd)), operator);
                 screenString = "";
                 displayScreen(screenString);
             }
@@ -246,7 +252,7 @@ public class MainActivity extends Activity {
     }
 
 
-    private String formatNumber(Double number){
+/*    private String format1(Double number){
         NumberFormat df;
         String numStr = Double.toString(Math.abs(number));
         int intPlaces = numStr.indexOf('.');
@@ -257,11 +263,57 @@ public class MainActivity extends Activity {
             df.setMinimumFractionDigits(6);
         }else{
             df = new DecimalFormat("@###########");
-            df.setMaximumFractionDigits(0);
+            df.setMinimumFractionDigits(0);
         }
 
         return df.format(number);
     }
+
+    private String format2(String number){
+        NumberFormat df;
+
+        boolean negativeNotation = number.indexOf('-') > 1;
+        int eIndex = number.indexOf('E');
+        int notation = number.charAt(eIndex + 1);
+
+        if (negativeNotation){
+            BigDecimal bd = new BigDecimal(number);
+            df = new DecimalFormat("0.##########");
+            df.setMaximumFractionDigits(9);
+            return df.format(bd);
+        }
+
+        if (notation > 9){
+            BigDecimal bd = new BigDecimal(number);
+            df = new DecimalFormat("###########.########");
+            df.setMinimumFractionDigits(0);
+            return df.format(bd);
+        }
+
+        return number;
+    }*/
+
+    private static String formatNumber(BigDecimal number){
+        DecimalFormat df;
+
+        String numStr = String.valueOf(number);
+        int intPlaces = numStr.indexOf('.');
+
+
+        if (intPlaces > 10 || (intPlaces == -1 && numStr.length() > 11)){
+            df = new DecimalFormat("0.0E00");
+            df.setMinimumFractionDigits(6);
+        }else if (intPlaces == 1){
+            df = new DecimalFormat("0.#########");
+            df.setMaximumFractionDigits(8);
+        }else{
+            df = new DecimalFormat("@###########");
+            df.setMinimumFractionDigits(0);
+        }
+
+        return df.format(number);
+    }
+
 
     private void pressKey(String key) {
         if(screenString.length() < 13){
