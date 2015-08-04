@@ -2,25 +2,25 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical"
+              android:background="#1e1e1e"
 
-              tools:context=".MainActivity"
-              android:background="#1e1e1e">
+              android:orientation="vertical"
+              tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/opScreen"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_weight="2"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
+        android:layout_weight="2"
 
-        android:paddingLeft="5dp"
+        android:background="#eafff9"
         android:gravity="bottom|right"
-        android:textStyle="bold"
+        android:paddingLeft="5dp"
         android:textSize="36sp"
-        android:background="#eafff9"/>
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/screen"
@@ -29,12 +29,12 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_weight="1"
-        android:maxLength="12"
-        android:text="0"
         android:background="#eafff9"
         android:gravity="bottom|right"
-        android:textStyle="bold"
-        android:textSize="58sp"/>
+        android:maxLength="12"
+        android:text="0"
+        android:textSize="58sp"
+        android:textStyle="bold"/>
 
 
     <LinearLayout
@@ -52,8 +52,8 @@
             android:onClick="pressAC"
             android:singleLine="true"
             android:text="AC"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonBackspace"
@@ -65,8 +65,8 @@
 
             android:singleLine="true"
             android:text="@string/backspace"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonPercent"
@@ -78,8 +78,8 @@
 
             android:singleLine="true"
             android:text="%"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonDivide"
@@ -91,9 +91,8 @@
             android:onClick="pressDiv"
             android:singleLine="true"
             android:text="/"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
-
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
 
     </LinearLayout>
@@ -113,8 +112,8 @@
             android:onClick="press7"
             android:singleLine="true"
             android:text="7"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button8"
@@ -125,8 +124,8 @@
             android:onClick="press8"
             android:singleLine="true"
             android:text="8"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button9"
@@ -137,8 +136,8 @@
             android:onClick="press9"
             android:singleLine="true"
             android:text="9"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonMult"
@@ -150,8 +149,8 @@
             android:singleLine="true"
             android:text="x"
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -170,8 +169,8 @@
             android:onClick="press4"
             android:singleLine="true"
             android:text="4"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button5"
@@ -182,8 +181,8 @@
             android:onClick="press5"
             android:singleLine="true"
             android:text="5"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button13"
@@ -194,8 +193,8 @@
             android:onClick="press6"
             android:singleLine="true"
             android:text="6"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonSub"
@@ -207,8 +206,8 @@
             android:singleLine="true"
             android:text="-"
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -227,8 +226,8 @@
             android:onClick="press1"
             android:singleLine="true"
             android:text="1"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button2"
@@ -239,8 +238,8 @@
             android:onClick="press2"
             android:singleLine="true"
             android:text="2"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button3"
@@ -251,8 +250,8 @@
             android:onClick="press3"
             android:singleLine="true"
             android:text="3"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonPlus"
@@ -264,8 +263,8 @@
             android:singleLine="true"
             android:text="+"
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
@@ -284,8 +283,8 @@
             android:onClick="press0"
             android:singleLine="true"
             android:text="0"
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonPoint"
@@ -297,8 +296,8 @@
             android:singleLine="true"
             android:text="."
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonSquareRoot"
@@ -310,8 +309,8 @@
             android:singleLine="true"
             android:text="SR"
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/buttonEqual"
@@ -323,8 +322,8 @@
             android:singleLine="true"
             android:text="="
 
-            android:textStyle="bold"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

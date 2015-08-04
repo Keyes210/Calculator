@@ -38,11 +38,6 @@ public class MainActivity extends Activity {
     Button equalButton;
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +117,6 @@ public class MainActivity extends Activity {
     }
 
 
-
     public void pressPoint(View view) {
         if (!screenString.contains(".")) {
             pressKey(".");
@@ -141,12 +135,12 @@ public class MainActivity extends Activity {
         number2 = null;
         operator = "";
         screenString = "";
-        displayOps("","");
+        displayOps("", "");
         displayScreen(screenString);
     }
 
     public void pressSqrt(View view) {
-        if (!screenString.equals("") && !screenString.equals(".") ) {
+        if (!screenString.equals("") && !screenString.equals(".")) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
             BigDecimal bd = new BigDecimal(number1);
             screenString = String.valueOf(formatNumber(bd));
@@ -181,13 +175,13 @@ public class MainActivity extends Activity {
             if (operator.equals("SR")) {
                 pressSqrt(view);
             } else {
-                if (number2 == null){
+                if (number2 == null) {
                     number2 = Double.parseDouble(screenString);
                 }
                 number1 = calculate(number1, number2, operator);
                 BigDecimal bd = new BigDecimal(number1);
                 screenString = String.valueOf(formatNumber(bd));
-                displayOps("","");
+                displayOps("", "");
                 displayScreen(screenString);
             }
         }
@@ -216,7 +210,7 @@ public class MainActivity extends Activity {
     }
 
     private void operation(String op) {
-        if (!screenString.equals("") && !screenString.equals(".") ) {
+        if (!screenString.equals("") && !screenString.equals(".")) {
             if (number1 != null && number2 == null) {
 
                 number2 = Double.parseDouble(screenString);
@@ -248,65 +242,24 @@ public class MainActivity extends Activity {
     }
 
     private void displayOps(String number, String operator) {
-        opScreen.setText(number+ " " + "\n" + operator + " ");
+        opScreen.setText(number + " " + "\n" + operator + " ");
     }
 
 
-/*    private String format1(Double number){
-        NumberFormat df;
-        String numStr = Double.toString(Math.abs(number));
-        int intPlaces = numStr.indexOf('.');
-        int decPlaces = numStr.length() - intPlaces - 1;
-
-        if (intPlaces > 10 || decPlaces > 10){
-            df = new DecimalFormat("0.0E0");
-            df.setMinimumFractionDigits(6);
-        }else{
-            df = new DecimalFormat("@###########");
-            df.setMinimumFractionDigits(0);
-        }
-
-        return df.format(number);
-    }
-
-    private String format2(String number){
-        NumberFormat df;
-
-        boolean negativeNotation = number.indexOf('-') > 1;
-        int eIndex = number.indexOf('E');
-        int notation = number.charAt(eIndex + 1);
-
-        if (negativeNotation){
-            BigDecimal bd = new BigDecimal(number);
-            df = new DecimalFormat("0.##########");
-            df.setMaximumFractionDigits(9);
-            return df.format(bd);
-        }
-
-        if (notation > 9){
-            BigDecimal bd = new BigDecimal(number);
-            df = new DecimalFormat("###########.########");
-            df.setMinimumFractionDigits(0);
-            return df.format(bd);
-        }
-
-        return number;
-    }*/
-
-    private static String formatNumber(BigDecimal number){
+    private static String formatNumber(BigDecimal number) {
         DecimalFormat df;
 
         String numStr = String.valueOf(number);
         int intPlaces = numStr.indexOf('.');
 
 
-        if (intPlaces > 10 || (intPlaces == -1 && numStr.length() > 11)){
+        if (intPlaces > 10 || (intPlaces == -1 && numStr.length() > 11)) {
             df = new DecimalFormat("0.0E00");
             df.setMinimumFractionDigits(6);
-        }else if (intPlaces == 1){
+        } else if (intPlaces == 1) {
             df = new DecimalFormat("0.#########");
             df.setMaximumFractionDigits(8);
-        }else{
+        } else {
             df = new DecimalFormat("@###########");
             df.setMinimumFractionDigits(0);
         }
@@ -316,10 +269,10 @@ public class MainActivity extends Activity {
 
 
     private void pressKey(String key) {
-        if(screenString.length() < 13){
+        if (screenString.length() < 13) {
             screenString += key;
             displayScreen(screenString);
-        }else{
+        } else {
             Toast.makeText(this, R.string.digits_exceeded_toast, Toast.LENGTH_LONG).show();
         }
     }
