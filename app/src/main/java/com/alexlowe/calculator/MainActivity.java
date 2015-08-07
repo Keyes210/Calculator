@@ -200,7 +200,11 @@ public class MainActivity extends Activity {
                 result = num1 * num2;
                 break;
             case "/":
-                result = num1 / num2;
+                if (num2 == 0) {
+                    Toast.makeText(this, "You cannot divide by 0!!!", Toast.LENGTH_SHORT).show();
+                }else {
+                    result = num1 / num2;
+                }
                 break;
             case "%":
                 result = (num1 / 100) * num2;
