@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
     }
 
     public void pressEqual(View view) {
-        if (!operator.equals("") && !screenString.equals("")) {
+        if (!operator.equals("") && !screenString.equals(".") && !screenString.equals("")) {
             if (operator.equals("SR")) {
                 pressSqrt(view);
             } else {
