@@ -184,7 +184,8 @@ public class MainActivity extends Activity {
     }
 
     public void pressEqual(View view) {
-        if (!operator.equals("") && !screenString.equals(".") && !screenString.equals("")) {
+        if (!operator.equals("") && !screenString.equals(".") && !screenString.equals("")
+                && !screenString.equals("-")) {
             if (operator.equals("SR")) {
                 pressSqrt(view);
             } else {
@@ -227,7 +228,7 @@ public class MainActivity extends Activity {
     }
 
     private void operation(String op) {
-        if (!screenString.equals("") && !screenString.equals(".")) {
+        if (!screenString.equals("") && !screenString.equals(".") && !screenString.equals("-")) {
             if (number1 != null && number2 == null) {
 
                 number2 = Double.parseDouble(screenString);
