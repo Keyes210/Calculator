@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="operation">#FF666869</color>
+    <color name="escape">#FFFFD239</color>
+    <color name="equal">#FFFF4D51</color>
+</resources>

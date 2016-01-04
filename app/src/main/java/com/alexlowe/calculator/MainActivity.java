@@ -140,13 +140,22 @@ public class MainActivity extends Activity {
     }
 
     public void pressSqrt(View view) {
-        if (!screenString.equals("") && !screenString.equals(".")) {
+        String opString = String.valueOf(opScreen.getText()).trim();
+
+        boolean negativeNumber = false;
+        if (!screenString.equals("")){
+            negativeNumber = screenString.substring(0,1).equals("-");
+        }
+
+        if (!screenString.equals("") && !screenString.equals(".") && !negativeNumber && opString.equals("")) {
             number1 = Math.sqrt(Double.parseDouble(screenString));
+            number2 = number1;
             BigDecimal bd = new BigDecimal(number1);
             screenString = String.valueOf(formatNumber(bd));
             operator = "SR";
             displayScreen(screenString);
         }
+
     }
 
     public void pressPercent(View view) {
@@ -158,7 +167,11 @@ public class MainActivity extends Activity {
     }
 
     public void pressMinus(View view) {
-        operation("-");
+        if(screenString.equals("")){
+            pressKey("-");
+        }else {
+            operation("-");
+        }
     }
 
     public void pressMult(View view) {
